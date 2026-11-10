@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Community Facilitation</title>
+</head>
+<body>
+    <div style="margin: 50px; font-family: Arial;">
+        <h2>Community Member Registration</h2>
+        
+        <!-- డేటాను సర్వర్‌కి పంపడానికి ఫారమ్ -->
+        <form action="/submit" method="POST">
+            <label>Name:</label><br>
+            <input type="text" name="name" required style="padding: 8px; width: 300px;"><br><br>
+            
+            <label>Message / Bio:</label><br>
+            <textarea name="message" rows="4" required style="padding: 8px; width: 300px;"></textarea><br><br>
+            
+            <button type="submit" style="padding: 10px 20px; background: green; color: white; border: none;">Submit</button>
+        </form>
+
+        <hr>
+        <h3>Registered Members List:</h3>
+        <ul>
+            {% for member in members %}
+                <li><b>{{ member.name }}</b>: {{ member.message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
